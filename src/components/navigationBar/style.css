@@ -1,0 +1,58 @@
+.page-content {
+    padding-top: 70px;
+}
+img.logoNav {
+    width: 5%;
+    padding: 0px 50px;
+    margin-left: 60px;
+    margin-top: 5px;
+    background-color: #e5e5e5;
+}
+.overview, .contacts, .favorites{
+    display: flex;
+    margin-right: 50px;
+    background: none;
+    border: none;
+    font-size: medium;
+    font-weight: 600;
+}
+.overview:hover, .contacts:hover, .favorites:hover{
+    cursor: pointer;
+    color: #c1d72f;
+}
+.header-views {
+    display: flex;
+    align-items: center; 
+}
+
+.right-header {
+    display: flex;
+    margin-left: 40%;
+}
+
+.right-header a{
+    text-decoration: none;
+}
+
+.new{
+    display: flex;
+    background-color: #c1d72f;
+    border-radius: 5px;
+    padding: 3px 20px;
+    font-size: small;
+    font-weight: 600;
+    border: none;
+}  
+.link{
+    text-decoration: none;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 13%;
+    width: 100%;
+    background-color: white; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
