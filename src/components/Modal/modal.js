@@ -3,6 +3,7 @@ import "./style.css";
 import { useDispatch } from "react-redux";
 import ReactModal from "react-modal";
 import { addContact } from "../../redux/contactSlice";
+import { addContactsApi } from "../../api";
 
 const ModalView = ({ modalIsOpen, closeModal }) => {
   const [first_name, setFirstName] = useState();
@@ -11,10 +12,12 @@ const ModalView = ({ modalIsOpen, closeModal }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useDispatch();
 
-  const addUser = (e) => {
+  const addUser = async (e) => {
     e.preventDefault();
     console.log(first_name, last_name, email, isFavorite)
-    dispatch(addContact({first_name, last_name, email, isFavorite}))
+    const user = {first_name, last_name, email, isFavorite, isDeleted : false}
+    dispatch(addContact(user))
+    await addContactsApi(user)
     closeModal()
   };
 

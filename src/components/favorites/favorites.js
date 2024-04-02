@@ -1,7 +1,6 @@
 import './style.css'
 import Card from '../card/card';
 import {useSelector} from "react-redux";
-/* Utilizar hooks para cambiar el titulo */
 
 const Favorites = () => {
     const { contacts } = useSelector((state) => state.contacts);

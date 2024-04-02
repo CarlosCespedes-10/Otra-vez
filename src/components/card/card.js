@@ -4,26 +4,29 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { removeContact, toggleFavorites } from "../../redux/contactSlice";
+import { UpdateContactApi } from "../../api";
 
 const Card = (props) => {
   const { type, contacts } = props;
   const [isFavorite] = useState(false);
   const dispatch = useDispatch();
 
-  const handleFavorite = (user) => {
+  const handleFavorite = async(user) => {
     console.log(user);
-    dispatch(toggleFavorites(user.id));
+    dispatch(toggleFavorites(user.id));  
+    await UpdateContactApi({...user, isFavorite: !user.isFavorite})
   };
 
-  const removeUser = (user) => {
+  const removeUser = async (user) => {
     console.log(user);
     dispatch(removeContact(user.id));
+    await UpdateContactApi({...user, isDeleted: true})
   };
 
   return (
     <div className="row">
       {contacts.map((user, index) => (
-        <div className="cards" key={index}>
+        <div className="card" key={index}>
           <img
             className={`avatar ${user.isFavorite ? "favorite" : ""}`}
             src={user.avatar}

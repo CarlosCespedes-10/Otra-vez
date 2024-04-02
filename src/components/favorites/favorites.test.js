@@ -1,9 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Favorites from './favorites';
 
-/*test('renders learn react link', () => {
+test('renders learn react link', () => {
   render(<App />);
   const linkElement = screen.getByText(/Favorites/i);
   expect(linkElement).toBeInTheDocument();
 });
-*/
